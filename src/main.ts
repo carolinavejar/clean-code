@@ -1,5 +1,5 @@
 import './style.css'
-import './clean-code/07-tarea'
+import './smell-code/02-low-coupling'
 
 const app = document.querySelector<HTMLDivElement>('#app')!
 
