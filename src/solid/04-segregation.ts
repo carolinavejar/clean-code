@@ -1,34 +1,35 @@
 interface Bird {
-    fly(): void;
     eat(): void;
-    run():void;
-    swim():void;
 }
 
-class Tucan implements Bird {
-    public fly()  { }
-    public eat()  { }
-    public run()  { }
-    public swim() { }
+interface RunningBird {
+    run(): void;
 }
 
-class Humminbird  implements Bird {
-    public fly()  { }
-    public eat()  { }
-    public run()  { }
-    public swim() { }
+interface FlyingBird {
+    fly(): void;
 }
 
-class Ostrich  implements Bird {
-    public fly()  { throw new Error ('Esta ave no vuela') }
-    public eat()  { }
-    public run()  { }
-    public swim() { }
+interface SwimmerBird {
+    swim(): void;
 }
 
-class Penguin  implements Bird {
-    public fly()  { throw new Error ('Esta ave no vuela') }
+class Tucan implements Bird, FlyingBird {
+    public fly()  { return 100 }
+    public eat()  { }
+}
+
+class Humminbird  implements Bird, FlyingBird {
+    public fly()  { return 200  }
+    public eat()  { }
+}
+
+class Ostrich  implements Bird, RunningBird {
     public eat()  { }
     public run()  { }
+}
+
+class Penguin  implements Bird, SwimmerBird {
+    public eat()  { }
     public swim() { }
 }
