@@ -1,6 +1,7 @@
+import { PostProvider } from "./05-dependency-a";
 import { JsonDataBaseService, LocalDataBaseService } from "./05-dependency-c";
 
-interface Post {
+export interface Post {
     body:   string;
     id:     number;
     title:  string;
@@ -12,7 +13,7 @@ export class PostService {
 
     private posts: Post[] = [];
 
-    constructor (private postProvider : JsonDataBaseService ) {}
+    constructor (private postProvider : PostProvider ) {}
 
 
     async getPosts() {

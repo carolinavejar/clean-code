@@ -1,10 +1,12 @@
 import localPosts from '../data/local-database.json'
+import webApiPosts from '../data/data.tarea.json'
+import { PostProvider } from './05-dependency-a';
 
-export class LocalDataBaseService {
+export class LocalDataBaseService implements PostProvider {
 
     constructor() {}
 
-    async getFakePosts() {
+    async getPosts() {
         return [
             {
                 'userId': 1,
@@ -22,8 +24,14 @@ export class LocalDataBaseService {
 
 }
 
-export class JsonDataBaseService {
+export class JsonDataBaseService implements PostProvider {
     async getPosts() {
         return localPosts;
+    }
+}
+
+export class WebApiPostService implements PostProvider {
+    async getPosts() {
+        return webApiPosts;
     }
 }
